@@ -1,0 +1,64 @@
+/*Header*/
+
+.header-element {
+    display: inline-block;
+    outline: 1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    max-height: 10rem;
+}
+
+.smiley {
+    max-width: 75%;
+    max-height: 10rem;
+}
+
+.logo {
+    max-height: 5rem;
+    max-width: 30rem;
+}
+
+h1 {
+    font-size: 5rem;
+    margin: .15rem;
+}
+
+
+/*general*/
+
+.w25 {
+    width: 24.5%;
+}
+
+.w66 {
+    width: 66%;
+}
+
+.w75 {
+    width: 74.5%;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+input {
+    font-size: 1.1rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+ul {
+    text-align: center;
+}
+
+
+/*Specifc*/
+
+.input-list {
+    display: inline-block;
+    width: 30%;
+    margin: 0.25rem 0;
+}
