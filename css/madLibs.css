@@ -19,12 +19,16 @@
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: 5vw;
     margin: .15rem;
 }
 
 
 /*general*/
+
+section {
+    text-align: center;
+}
 
 .w25 {
     width: 24.5%;
@@ -39,7 +43,7 @@ h1 {
 }
 
 h3 {
-    font-size: 2.5rem;
+    font-size: 3vw;
 }
 
 input {
@@ -61,4 +65,8 @@ ul {
     display: inline-block;
     width: 30%;
     margin: 0.25rem 0;
+}
+
+.libGen {
+    display: none;
 }
