@@ -9,7 +9,7 @@
     <script src="js/app.js"></script>
 </head>
 
-<body ng-app="madApp" ng-controller='libCtrl '>
+<body ng-app="madApp" ng-controller='libCtrl as lib'>
     <header class="header">
         <div class="header-element w25">
             <img class="smiley" src=images/smiley.jpg>
@@ -21,51 +21,51 @@
     </header>
     <section>
         <label>Choose a Gender: </label>
-        <input type="radio" name="gender" ng-model='gender' value='male' ng-click='genderMal()'>
+        <input type="radio" name="gender" ng-model='lib.gender' value='male' ng-click='lib.genderMal()'>
         <label>Male</label>
-        <input type="radio" name="gender" ng-model='gender' value='female' ng-click='genderFem()'>
+        <input type="radio" name="gender" ng-model='lib.gender' value='female' ng-click='lib.genderFem()'>
         <label>Female</label>
 
         <h3>Provide the following words:</h3>
-        <form ng-submit='submit()'>
+        <form ng-submit='lib.submit()'>
 
 
             <ul>
-                <li class="input-list" ng-switch="gender">
-                    <input type='text' required ng-switch-when="male" ng-model="madData.name" placeholder="Male Name" value="john">
-                    <input type='text' required ng-switch-when="female" ng-model="madData.name" placeholder="Female Name" value="jane">
+                <li class="input-list" ng-switch="lib.gender">
+                    <input type='text' required ng-switch-when="male" ng-model="lib.madData.name" placeholder="Male Name" value="john">
+                    <input type='text' required ng-switch-when="female" ng-model="lib.madData.name" placeholder="Female Name" value="jane">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.jobTitle" placeholder="Job title">
+                    <input type='text' required ng-model="lib.madData.jobTitle" placeholder="Job title">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.tediousTask" placeholder="Tedious task">
+                    <input type='text' required ng-model="lib.madData.tediousTask" placeholder="Tedious task">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.dirtyTask" placeholder="Dirty task">
+                    <input type='text' required ng-model="lib.madData.dirtyTask" placeholder="Dirty task">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.celebrity" placeholder="Celebrity">
+                    <input type='text' required ng-model="lib.madData.celebrity" placeholder="Celebrity">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.uselessSkill" placeholder="Useless skill">
+                    <input type='text' required ng-model="lib.madData.uselessSkill" placeholder="Useless skill">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.obnoxiousCelebrity" placeholder="Obnoxious celebrity">
+                    <input type='text' required ng-model="lib.madData.obnoxiousCelebrity" placeholder="Obnoxious celebrity">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.hugeNumber" placeholder="Huge number">
+                    <input type='text' required ng-model="lib.madData.hugeNumber" placeholder="Huge number">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="madData.adjective" placeholder="Adjective">
+                    <input type='text' required ng-model="lib.madData.adjective" placeholder="Adjective">
                 </li>
             </ul>
             <input type='submit' value='Generate MadLib'>
         </form>
     </section>
-    <section ng-show="shower">
-        <p>{{madData.name}} was a {{madData.jobTitle}} who loved technology. Although {{heShe}} loved parts of {{hisHer}} job, {{heShe}} absolutely hated {{madData.tediousTask}} and {{madData.dirtyTask}}. So, {{madData.femaleName}} met with {{hisHer}} life mentor {{madData.celebrity}} who told {{himHer}} to learn how to {{madData.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{madData.uselessSkill}} so {{heShe}} studied programming instead. </p>
-        <p>What a great decision! With {{hisHer}} new skills, {{madData.femaleName}} built a(n) {{madData.adjective}} robot named {{madData.obnoxiousCelebrity}} that not only loved {{madData.dirtyTask}} but did it {{madData.hugeNumber}} times faster. </p>
+    <section ng-show="lib.shower">
+        <p>{{lib.madData.name}} was a {{lib.madData.jobTitle}} who loved technology. Although {{lib.heShe}} loved parts of {{lib.hisHer}} job, {{lib.heShe}} absolutely hated {{lib.madData.tediousTask}} and {{lib.madData.dirtyTask}}. So, {{lib.madData.femaleName}} met with {{lib.hisHer}} life mentor {{lib.madData.celebrity}} who told {{lib.himHer}} to learn how to {{lib.madData.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{lib.madData.uselessSkill}} so {{lib.heShe}} studied programming instead. </p>
+        <p>What a great decision! With {{lib.hisHer}} new skills, {{lib.madData.femaleName}} built a(n) {{lib.madData.adjective}} robot named {{lib.madData.obnoxiousCelebrity}} that not only loved {{lib.madData.dirtyTask}} but did it {{lib.madData.hugeNumber}} times faster. </p>
     </section>
 </body>
 

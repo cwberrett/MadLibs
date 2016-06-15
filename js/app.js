@@ -1,21 +1,22 @@
 angular.module('madApp', [])
-    .controller('libCtrl', function ($scope) {
-        $scope.shower = false;
-        $scope.gender = 'male';
-        $scope.hisHer = 'his';
-        $scope.heShe = 'he';
-        $scope.himHer = 'him';
-        $scope.genderMal = function () {
-            $scope.hisHer = 'his';
-            $scope.heShe = 'he';
-            $scope.himHer = 'him';
+    .controller('libCtrl', function () {
+        var lib = this;
+        lib.shower = false;
+        lib.gender = 'male';
+        lib.hisHer = 'his';
+        lib.heShe = 'he';
+        lib.himHer = 'him';
+        lib.genderMal = function () {
+            lib.hisHer = 'his';
+            lib.heShe = 'he';
+            lib.himHer = 'him';
         }
-        $scope.genderFem = function () {
-            $scope.hisHer = 'her';
-            $scope.heShe = 'she';
-            $scope.himHer = 'her';
+        lib.genderFem = function () {
+            lib.hisHer = 'her';
+            lib.heShe = 'she';
+            lib.himHer = 'her';
         }
-        $scope.madData = {
+        lib.madData = {
             name: 'john',
             jobTitle: 'staple sorter',
             tediousTask: 'straightening staples',
@@ -27,11 +28,11 @@ angular.module('madApp', [])
             adjective: 'Hilarious'
 
         }
-        $scope.submit = function () {
-            $scope.madData.name = capitalizeName($scope.madData.name);
-            $scope.madData.celebrity = capitalizeName($scope.madData.celebrity);
-            $scope.madData.obnoxiousCelebrity = capitalizeName($scope.madData.obnoxiousCelebrity);
-            $scope.shower = true;
+        lib.submit = function () {
+            lib.madData.name = capitalizeName(lib.madData.name);
+            lib.madData.celebrity = capitalizeName(lib.madData.celebrity);
+            lib.madData.obnoxiousCelebrity = capitalizeName(lib.madData.obnoxiousCelebrity);
+            lib.shower = true;
         }
     })
 
