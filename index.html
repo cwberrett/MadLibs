@@ -6,6 +6,7 @@
     <title>MadLibs</title>
     <link rel="stylesheet" type="text/css" href="css/madLibs.css">
     <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.7/angular-messages.min.js"></script>
     <script src="js/app.js"></script>
 </head>
 
@@ -19,7 +20,7 @@
             <h1>Automate This!</h1>
         </div>
     </header>
-    <section>
+    <section ng-show="!lib.shower">
         <label>Choose a Gender: </label>
         <input type="radio" name="gender" ng-model='lib.gender' value='male' ng-click='lib.genderMal()'>
         <label>Male</label>
@@ -27,45 +28,71 @@
         <label>Female</label>
 
         <h3>Provide the following words:</h3>
-        <form ng-submit='lib.submit()'>
-
-
+        <form id="madForm" name='madForm' ng-submit='lib.submit()' novalidate>
             <ul>
                 <li class="input-list" ng-switch="lib.gender">
-                    <input type='text' required ng-switch-when="male" ng-model="lib.madData.name" placeholder="Male Name" value="john">
-                    <input type='text' required ng-switch-when="female" ng-model="lib.madData.name" placeholder="Female Name" value="jane">
+                    <input type='text' name="personName" required ng-switch-when="male" ng-model="lib.madData.name" placeholder="Male Name">
+                    <input type='text' name="PersonName" required ng-switch-when="female" ng-model="lib.madData.name" placeholder="Female Name">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.jobTitle" placeholder="Job title">
+                    <input type='text' name="jobTitle" required ng-model="lib.madData.jobTitle" placeholder="Job title">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.tediousTask" placeholder="Tedious task">
+                    <input type='text' name="tedTask" required ng-model="lib.madData.tediousTask" placeholder="Tedious task">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.dirtyTask" placeholder="Dirty task">
+                    <input type='text' name="dirtyTask" required ng-model="lib.madData.dirtyTask" placeholder="Dirty task">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.celebrity" placeholder="Celebrity">
+                    <input type='text' name="celeb" required ng-model="lib.madData.celebrity" placeholder="Celebrity">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.uselessSkill" placeholder="Useless skill">
+                    <input type='text' name="useSkill" required ng-model="lib.madData.uselessSkill" placeholder="Useless skill">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.obnoxiousCelebrity" placeholder="Obnoxious celebrity">
+                    <input type='text' name="obnoxCeleb" required ng-model="lib.madData.obnoxiousCelebrity" placeholder="Obnoxious celebrity">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.hugeNumber" placeholder="Huge number">
+                    <input type='number' name="number" min=0 required ng-model="lib.madData.hugeNumber" placeholder="Huge number">
                 </li>
                 <li class="input-list">
-                    <input type='text' required ng-model="lib.madData.adjective" placeholder="Adjective">
+                    <input type='text' name="adj" required ng-model="lib.madData.adjective" placeholder="Adjective">
                 </li>
             </ul>
             <input type='submit' value='Generate MadLib'>
         </form>
+        <div ng-if="madForm.personName.$touched || madForm.$submitted" ng-messages="madForm.personName.$error">
+            <div class="error" ng-message="required">Please enter a name.</div>
+        </div>
+        <div ng-if="madForm.jobTitle.$touched || madForm.$submitted" ng-messages="madForm.jobTitle.$error">
+            <div class="error" ng-message="required">Please enter a job title.</div>
+        </div>
+        <div ng-if="madForm.tedTask.$touched || madForm.$submitted" ng-messages="madForm.tedTask.$error">
+            <div class="error" ng-message="required">Please enter a tedious task.</div>
+        </div>
+        <div ng-if="madForm.dirtyTask.$touched || madForm.$submitted" ng-messages="madForm.dirtyTask.$error">
+            <div class="error" ng-message="required">Please enter a dirty task.</div>
+        </div>
+        <div ng-if="madForm.celeb.$touched || madForm.$submitted" ng-messages="madForm.celeb.$error">
+            <div class="error" ng-message="required">Please enter the name of a celebrity.</div>
+        </div>
+        <div ng-if="madForm.useSkill.$touched || madForm.$submitted" ng-messages="madForm.useSkill.$error">
+            <div class="error" ng-message="required">Please enter a useless skill.</div>
+        </div>
+        <div ng-if="madForm.obnoxCeleb.$touched || madForm.$submitted" ng-messages="madForm.obnoxCeleb.$error">
+            <div class="error" ng-message="required">Please enter the name of an obnoxious celebrity.</div>
+        </div>
+        <div ng-if="madForm.number.$touched || madForm.$submitted" ng-messages="madForm.number.$error">
+            <div class="error" ng-message="required">Please enter a huge number.</div>
+        </div>
+        <div class="input-list" ng-if="madForm.adj.$touched || madForm.$submitted" ng-messages="madForm.adj.$error">
+            <div class="error" ng-message="required">Please enter an adjective.</div>
+        </div>
     </section>
     <section ng-show="lib.shower">
         <p>{{lib.madData.name}} was a {{lib.madData.jobTitle}} who loved technology. Although {{lib.heShe}} loved parts of {{lib.hisHer}} job, {{lib.heShe}} absolutely hated {{lib.madData.tediousTask}} and {{lib.madData.dirtyTask}}. So, {{lib.madData.femaleName}} met with {{lib.hisHer}} life mentor {{lib.madData.celebrity}} who told {{lib.himHer}} to learn how to {{lib.madData.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{lib.madData.uselessSkill}} so {{lib.heShe}} studied programming instead. </p>
         <p>What a great decision! With {{lib.hisHer}} new skills, {{lib.madData.femaleName}} built a(n) {{lib.madData.adjective}} robot named {{lib.madData.obnoxiousCelebrity}} that not only loved {{lib.madData.dirtyTask}} but did it {{lib.madData.hugeNumber}} times faster. </p>
+        <button ng-click="lib.reset()">Restart</button>
     </section>
 </body>
 
