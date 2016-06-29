@@ -71,10 +71,60 @@ ul {
     margin: 0.25rem 0;
 }
 
+.input-list input {
+    width: 90%;
+}
+
 .libGen {
     display: none;
 }
 
 .error {
     color: red;
+}
+
+
+/*animations*/
+
+.form-slide.ng-hide-add,
+.form-slide.ng-hide-remove,
+.result-slide.ng-hide-add,
+.result-slide.ng-hide-remove {
+    display: block !important;
+}
+
+.form-slide.ng-hide {
+    position: absolute;
+    animation: roSlideOut 1.5s;
+}
+
+.form-slide {
+    animation: roSlideIn 1.5s;
+}
+
+.result-slide {
+    animation: roSlideIn 1.5s;
+}
+
+.result-slide.ng-hide {
+    position: absolute;
+    animation: roSlideOut 1.5s;
+}
+
+@-webkit-keyframes roSlideOut {
+    100% {
+        transform: rotate(90deg);
+        margin-left: 900px;
+    }
+}
+
+@-webkit-keyframes roSlideIn {
+    0% {
+        transform: rotate(90deg);
+        margin-top: 900px;
+    }
+    100% {
+        margin-right: 0px;
+        transform: rotate(0deg)
+    }
 }

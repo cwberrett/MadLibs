@@ -1,4 +1,4 @@
-angular.module('madApp', ['ngMessages'])
+angular.module('madApp', ['ngMessages', 'ngAnimate'])
     .controller('libCtrl', function () {
         var lib = this;
         lib.shower = false;
@@ -18,7 +18,6 @@ angular.module('madApp', ['ngMessages'])
         }
         lib.madData = {
 
-
         }
         lib.submit = function () {
             lib.madData.name = capitalizeName(lib.madData.name);
@@ -27,8 +26,7 @@ angular.module('madApp', ['ngMessages'])
             lib.shower = true;
         }
         lib.reset = function () {
-            document.getElementById("madForm").reset();
-            lib.shower = false;
+            location.reload();
         }
     })
 
